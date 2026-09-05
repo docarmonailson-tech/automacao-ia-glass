@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up - SHRUHH</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="glass-card">
+    <div class="logo-container">
+      <div class="logo-icon"></div>
+      <span class="brand-name">SHRUHH</span>
+    </div>
+
+    <h2 class="welcome-text">Create Account</h2>
+
+    <form id="signupForm">
+      <div class="input-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" required>
+      </div>
+
+      <div class="input-group">
+        <label for="email">Email address</label>
+        <input type="email" id="email" required>
+      </div>
+
+      <div class="input-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" required>
+      </div>
+
+      <button type="submit" class="btn-login">Sign Up</button>
+    </form>
+
+    <div class="signup-prompt">
+      Already a member? <a href="index.html" class="signup-link">Login</a>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('signupForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Conta criada com sucesso!');
+      window.location.href = 'dashboard.html';
+    });
+  </script>
+</body>
+</html>

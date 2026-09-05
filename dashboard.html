@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Automação IA</title>
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+  <div class="dashboard-container">
+    <header class="header">
+      <h2>Painel de Controle</h2>
+      <span class="user-badge">Rahul</span>
+    </header>
+
+    <section class="cards-grid">
+      <div class="glass-card status-card">
+        <h3>WhatsApp</h3>
+        <span class="status offline" id="wp-status">Desconectado</span>
+        <button onclick="conectarWhatsapp()">Conectar QR Code</button>
+      </div>
+
+      <div class="glass-card status-card">
+        <h3>Instagram / Meta</h3>
+        <span class="status online">Conectado</span>
+        <button disabled>Vinculado</button>
+      </div>
+
+      <div class="glass-card status-card">
+        <h3>Agente de IA</h3>
+        <span class="status online">Ativo (Gemini API)</span>
+        <button onclick="configurarIA()">Configurar Prompt</button>
+      </div>
+    </section>
+
+    <section class="glass-card logs-section">
+      <h3>Últimas Automações</h3>
+      <ul class="log-list" id="logList">
+        <li><span>WhatsApp:</span> Resposta enviada para +55 11 99999-9999 (IA)</li>
+        <li><span>Instagram:</span> Direct respondido automaticamente</li>
+      </ul>
+    </section>
+  </div>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>

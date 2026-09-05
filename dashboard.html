@@ -3,11 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard - Automação IA</title>
+  <title>Dashboard - SHRUHH</title>
   <link rel="stylesheet" href="dashboard.css">
 </head>
 <body>
-  <div class="dashboard-container">
+
+  <!-- Menu Lateral -->
+  <aside class="sidebar">
+    <div class="logo-container">
+      <div class="logo-icon"></div>
+      <span class="brand-name">SHRUHH</span>
+    </div>
+
+    <nav class="sidebar-menu">
+      <a href="#" class="menu-item active">📊 Painel</a>
+      <a href="#" class="menu-item">🤖 Agentes IA</a>
+      <a href="#" class="menu-item">💬 Conexões</a>
+      <a href="#" class="menu-item">⚙️ Configurações</a>
+    </nav>
+
+    <button class="btn-logout" onclick="fazerLogout()">Sair</button>
+  </aside>
+
+  <!-- Conteúdo Principal -->
+  <main class="main-content">
     <header class="header">
       <h2>Painel de Controle</h2>
       <span class="user-badge">Rahul</span>
@@ -40,7 +59,7 @@
         <li><span>Instagram:</span> Direct respondido automaticamente</li>
       </ul>
     </section>
-  </div>
+  </main>
 
   <script src="dashboard.js"></script>
 </body>

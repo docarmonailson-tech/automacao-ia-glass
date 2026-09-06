@@ -36,7 +36,7 @@
       <div class="glass-card status-card">
         <h3>WhatsApp</h3>
         <span class="status offline" id="wp-status">Desconectado</span>
-        <button onclick="conectarWhatsapp()">Conectar QR Code</button>
+        <button onclick="conectarWhatsapp()">Conectar WhatsApp</button>
       </div>
 
       <div class="glass-card status-card">
@@ -55,11 +55,37 @@
     <section class="glass-card logs-section">
       <h3>Últimas Automações</h3>
       <ul class="log-list" id="logList">
-        <li><span>WhatsApp:</span> Resposta enviada para +55 11 99999-9999 (IA)</li>
-        <li><span>Instagram:</span> Direct respondido automaticamente</li>
+        <li><span>WhatsApp:</span> Aguardando nova conexão...</li>
       </ul>
     </section>
   </main>
+
+  <!-- Modal de Conexão (QR Code + Número de Telefone) -->
+  <div id="qrModal" class="modal">
+    <div class="glass-card modal-content">
+      <h3>Conectar WhatsApp</h3>
+
+      <!-- Opção via Número de Telefone -->
+      <div id="phoneSection" style="margin-top: 15px;">
+        <p style="font-size: 0.85rem; color: #ccc;">Conectar via número de telefone:</p>
+        <input type="text" id="phoneInput" placeholder="Ex: 5511999999999" style="padding: 10px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.3); color: #fff; width: 100%; margin: 10px 0; text-align: center;">
+        <button onclick="gerarCodigoPareamento()" style="width: 100%; margin-bottom: 10px;">Gerar Código de Conexão</button>
+      </div>
+
+      <div id="pairingCodeDisplay" style="display:none; font-size: 1.4rem; letter-spacing: 3px; color: #c084fc; font-weight: bold; margin: 15px 0; padding: 10px; background: rgba(168, 85, 247, 0.1); border-radius: 8px;"></div>
+
+      <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 15px 0;">
+
+      <!-- Opção via QR Code -->
+      <p style="font-size: 0.85rem; color: #ccc;">Ou escaneie a imagem abaixo:</p>
+      <div id="qrContainer" class="qr-container">
+        <p id="qrLoading" style="font-size: 0.85rem; color: #aaa;">Aguardando inicialização...</p>
+        <img id="qrImage" src="" alt="QR Code WhatsApp" style="display: none; width: 180px; height: 180px; margin: 10px auto;" />
+      </div>
+
+      <button onclick="fecharModalQR()" style="background: rgba(239, 68, 68, 0.3); border-color: rgba(239, 68, 68, 0.5); width: 100%;">Fechar</button>
+    </div>
+  </div>
 
   <script src="dashboard.js"></script>
 </body>

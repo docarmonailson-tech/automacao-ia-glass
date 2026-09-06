@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -8,7 +9,7 @@
 </head>
 <body>
 
-  <!-- Menu Lateral -->
+  <!-- Sidebar / Menu Lateral -->
   <aside class="sidebar">
     <div class="logo-container">
       <div class="logo-icon"></div>
@@ -17,9 +18,9 @@
 
     <nav class="sidebar-menu">
       <a href="#" class="menu-item active">📊 Painel</a>
-      <a href="#" class="menu-item">🤖 Agentes IA</a>
-      <a href="#" class="menu-item">💬 Conexões</a>
-      <a href="#" class="menu-item">⚙️ Configurações</a>
+      <a href="#" onclick="configurarIA()" class="menu-item">🤖 Agentes IA</a>
+      <a href="#" onclick="conectarWhatsapp()" class="menu-item">💬 Conexões</a>
+      <a href="#" onclick="alert('Configurações salvas.')" class="menu-item">⚙️ Configurações</a>
     </nav>
 
     <button class="btn-logout" onclick="fazerLogout()">Sair</button>
@@ -32,19 +33,23 @@
       <span class="user-badge">Rahul</span>
     </header>
 
+    <!-- Cards de Conexões -->
     <section class="cards-grid">
+      <!-- WhatsApp -->
       <div class="glass-card status-card">
         <h3>WhatsApp</h3>
         <span class="status offline" id="wp-status">Desconectado</span>
-        <button onclick="conectarWhatsapp()">Conectar WhatsApp</button>
+        <button id="wp-btn" onclick="conectarWhatsapp()">Conectar WhatsApp</button>
       </div>
 
+      <!-- Instagram / Meta -->
       <div class="glass-card status-card">
         <h3>Instagram / Meta</h3>
-        <span class="status online">Conectado</span>
-        <button disabled>Vinculado</button>
+        <span class="status online" id="insta-status">Conectado</span>
+        <button id="insta-btn" onclick="alternarInstagram()">Desconectar</button>
       </div>
 
+      <!-- Agente de IA -->
       <div class="glass-card status-card">
         <h3>Agente de IA</h3>
         <span class="status online">Ativo (Gemini API)</span>
@@ -52,23 +57,27 @@
       </div>
     </section>
 
+    <!-- Painel de Logs -->
     <section class="glass-card logs-section">
-      <h3>Últimas Automações</h3>
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+        <h3>Últimas Automações</h3>
+        <button onclick="limparLogs()" style="padding: 4px 10px; font-size: 0.8rem; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);">Limpar Logs</button>
+      </div>
       <ul class="log-list" id="logList">
-        <li><span>WhatsApp:</span> Aguardando nova conexão...</li>
+        <li><span>WhatsApp:</span> Sessão pareada e pronta para uso.</li>
       </ul>
     </section>
   </main>
 
-  <!-- Modal de Conexão (QR Code + Número de Telefone) -->
+  <!-- Modal do QR Code / Código de Pareamento -->
   <div id="qrModal" class="modal">
     <div class="glass-card modal-content">
       <h3>Conectar WhatsApp</h3>
 
-      <!-- Opção via Número de Telefone -->
+      <!-- Seção Telefone -->
       <div id="phoneSection" style="margin-top: 15px;">
         <p style="font-size: 0.85rem; color: #ccc;">Conectar via número de telefone:</p>
-        <input type="text" id="phoneInput" placeholder="Ex: 5511999999999" style="padding: 10px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.3); color: #fff; width: 100%; margin: 10px 0; text-align: center;">
+        <input type="text" id="phoneInput" placeholder="Ex: 71993181776" style="padding: 10px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.3); color: #fff; width: 100%; margin: 10px 0; text-align: center;">
         <button onclick="gerarCodigoPareamento()" style="width: 100%; margin-bottom: 10px;">Gerar Código de Conexão</button>
       </div>
 
@@ -76,7 +85,7 @@
 
       <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 15px 0;">
 
-      <!-- Opção via QR Code -->
+      <!-- Seção QR Code -->
       <p style="font-size: 0.85rem; color: #ccc;">Ou escaneie a imagem abaixo:</p>
       <div id="qrContainer" class="qr-container">
         <p id="qrLoading" style="font-size: 0.85rem; color: #aaa;">Aguardando inicialização...</p>
